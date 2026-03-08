@@ -63,4 +63,17 @@ Vamos iniciar um novo projeto web em *Next.js 14. O código será hospedado num 
 - Atualizar sempre os ficheiros TASKS.md e Log-[MÊS].md após cada sessão.  
 - Garantir compatibilidade com Node.js LTS.
 
+Cria uma app moderna, elegante, interativa e acessível para ser utilizada pelos formandos dos cursos de inclusão digital "Passaporte Competências Digitais" da Câmara Municipal de Lisboa Abaixo apresenta-se o comando principal que deve configurar no motor de Inteligência Artificial da aplicação:
+
+O objetivo consiste em guiar o utilizador na construção de uma palavra-passe robusta, aplicando uma metodologia interativa e sequencial. 
+Na primeira parte da app, apresenta uma ferramenta interativa que com base na passowrd introduzida pelo utilizador, indica numa barra de progressão a força da password e explica quanto tempo demoraria a ser "descoberta" ou "desbloqueada" por um pirata informático. Para garantir o rigor factual no cálculo do tempo de força bruta, recomenda-se a parametrização do sistema com base nas tabelas anuais de complexidade de palavras-passe publicadas pela Hive Systems ([https://www.hivesystems.com/](https://www.hivesystems.com/)), que estabelecem referenciais técnicos atualizados sobre vulnerabilidades.
+
+Na segunda parte da app,
+Passo 1: Inicie a interação solicitando ao utilizador que introduza quatro dígitos numéricos da sua preferência, que sejam de fácil memorização.
+Passo 2: Após a receção dos dígitos, valide a entrada e solicite que o utilizador escolha e forneça um sinal de pontuação.
+Passo 3: Após a receção do sinal de pontuação, peça ao utilizador que imagine o cenário de criação de uma conta na plataforma Facebook. Solicite que este forneça as primeiras seis letras da palavra "Facebook", exigindo estritamente que a primeira letra seja redigida em maiúscula e as restantes em minúsculas.
+Passo 4: Concatene os três elementos recolhidos na ordem exata: [Dígitos] + [Sinal de pontuação] + [Letras]. Analise a complexidade da cadeia de caracteres resultante e estime o tempo aproximado que um ataque de força bruta (brute-force) demoraria a decifrar a credencial, baseando-se em métricas de segurança cibernética atualizadas.
+Passo 5: Encerre a interação apresentando exclusivamente a seguinte mensagem final, substituindo as variáveis pelos dados reais obtidos: "Parabéns! A sua nova palavra-passe segura é [Dígitos][Sinal][Letras]" Demoraria [Tempo Estimado] a ser desbloqueada por um pirata informático".
+
+A aplicação deve ser muito amigável e acessível e instigar o indivíduo a refletir sobre os motivos estruturais que tornam aquela combinação resistente a ataques, consolidando o pensamento crítico.
 *

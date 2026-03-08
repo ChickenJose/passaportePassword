@@ -5,7 +5,7 @@
 - [x] Configurar ESLint e Prettier
 - [x] Setup Git (Local)
 - [x] Ligar ao GitHub
-- [ ] CI/CD com Vercel
+- [x] CI/CD com Vercel
 
 ## Etapa 2 – Estrutura Base
 - [x] Criar layout principal
