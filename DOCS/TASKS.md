@@ -4,7 +4,7 @@
 - [x] Criar app base com Next.js e TypeScript
 - [x] Configurar ESLint e Prettier
 - [x] Setup Git (Local)
-- [ ] Ligar ao GitHub
+- [x] Ligar ao GitHub
 - [ ] CI/CD com Vercel
 
 ## Etapa 2 – Estrutura Base
