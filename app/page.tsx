@@ -1,40 +1,50 @@
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
+import { PasswordTester } from '@/components/PasswordTester';
+import { PasswordWizard } from '@/components/PasswordWizard';
 
 export default function Home() {
   return (
-    <main style={{ padding: 'var(--space-6) 0' }}>
-      <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)', alignItems: 'center', textAlign: 'center' }}>
+    <main className="section-spacing">
+      <div className="container app-container">
         
-        <header style={{ maxWidth: '800px' }}>
-          <h1 style={{ fontSize: '3rem', marginBottom: 'var(--space-3)' }}>
-            A sua jornada digital começa aqui
+        <header className="app-header">
+          <h1 className="hero-title">
+            Passaporte Competências Digitais
           </h1>
-          <p style={{ fontSize: '1.25rem', color: 'var(--c-text-muted)', marginBottom: 'var(--space-5)' }}>
-            Bem-vindo ao Passaporte Password. Uma plataforma de capacitação centralizada para modernizar o seu acesso e as suas ferramentas de identidade.
+          <p className="hero-subtitle">
+            Câmara Municipal de Lisboa
           </p>
-          <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center' }}>
-            <Button variant="primary">Começar Agora</Button>
-            <a href="/DOCS/PRD.md" className="btn" style={{ backgroundColor: 'var(--c-border)', color: 'var(--c-text-main)' }}>Ler Documentação</a>
-          </div>
+          <p className="hero-description">
+            Aprenda a construir uma palavra-passe robusta e descubra quão seguras são as suas credenciais atuais contra piratas informáticos.
+          </p>
         </header>
 
-        <section style={{ width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-4)' }}>
-          <Card title="Experiência CML Inspirada">
-            <p style={{ color: 'var(--c-text-muted)' }}>
-              Design limpo, responsivo e projetado para facilidade de uso diário, com semelhanças à iniciativa Futuro Digital.
-            </p>
-          </Card>
-          <Card title="Vanilla CSS Flexível">
-            <p style={{ color: 'var(--c-text-muted)' }}>
-              Todo o design system é controlável deitando mão aos CSS variables implementados, dispensando layouts difíceis de alterar.
-            </p>
-          </Card>
-          <Card title="Estrutura Next.js 14">
-            <p style={{ color: 'var(--c-text-muted)' }}>
-              Arquitetura sólida com o App Router para escalabilidade máxima, mantendo a performance e boas práticas de SEO.
-            </p>
-          </Card>
+        {/* Core Application Grid */}
+        <section className="app-grid">
+          
+          {/* Left Column: Password Tester */}
+          <div className="column">
+            <div className="column-header">
+              <h2>1. Teste de Força Bruta</h2>
+              <p className="text-muted">
+                Esta ferramenta interativa calcula em tempo real quanto tempo um pirata informático precisaria para desvendar a sua palavra-passe, baseando-se nas tabelas rigorosas da <strong>Hive Systems</strong>.
+              </p>
+            </div>
+            <PasswordTester />
+          </div>
+
+          {/* Right Column: Password Wizard (Step by step Guide) */}
+          <div className="column">
+            <div className="column-header">
+              <h2>2. Método Interativo</h2>
+              <p className="text-muted">
+                Vamos guiá-lo passo a passo na criação de uma palavra-passe forte, construindo blocos estruturais que combinam segurança com fácil memorização humana.
+              </p>
+            </div>
+            <PasswordWizard />
+          </div>
+
         </section>
 
       </div>
