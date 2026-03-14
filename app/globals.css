@@ -338,3 +338,97 @@ a:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Mascot & Friendly UI Adjustments */
+.mascot-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.raven-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 100%;
+}
+
+.raven-emoji {
+  font-size: 3rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  animation: slight-bounce 2s infinite ease-in-out;
+}
+
+@keyframes slight-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.speech-bubble {
+  position: relative;
+  background-color: #f0f4ff; /* Light playful blue */
+  border: 2px solid var(--c-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--c-text-main);
+  box-shadow: var(--shadow-sm);
+  max-width: 400px;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -12px;
+  border-width: 10px 14px 10px 0;
+  border-style: solid;
+  border-color: transparent var(--c-primary) transparent transparent;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: -8px;
+  border-width: 8px 11px 8px 0;
+  border-style: solid;
+  border-color: transparent #f0f4ff transparent transparent;
+}
+
+.mascot-mt {
+  margin-top: var(--space-2);
+}
+
+/* Friendly Progress Bar Overrides */
+.friendly-bar {
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background-color: #e2e8f0;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  margin-top: var(--space-4);
+}
+
+.friendly-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
+}
+
+/* Dark mode overrides for the mascot */
+@media (prefers-color-scheme: dark) {
+  .speech-bubble {
+    background-color: #1e2540;
+    color: #ffffff;
+  }
+  .speech-bubble::after {
+    border-color: transparent #1e2540 transparent transparent;
+  }
+  .friendly-bar {
+    background-color: #333333;
+  }
+}

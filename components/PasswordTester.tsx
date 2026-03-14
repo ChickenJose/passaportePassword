@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { analyzePasswordStrength, PasswordStrengthResult } from '@/utils/passwordStrength';
 import { Card } from './Card';
+import { RavenMascot } from './RavenMascot';
 
 export const PasswordTester: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -23,7 +24,15 @@ export const PasswordTester: React.FC = () => {
     <Card className="password-tester" title="Testar Força da Password">
       <div className="tester-container">
         
-        <div className="input-with-button">
+        {/* Raven Mascot Section */}
+        <div className="mascot-section">
+            <RavenMascot 
+               message={result.mascotHint} 
+               mood={result.score >= 80 ? 'happy' : result.score < 40 ? 'warning' : 'neutral'} 
+            />
+        </div>
+
+        <div className="input-with-button mascot-mt">
           <input
             type={showPassword ? 'text' : 'password'}
             value={password}
@@ -41,11 +50,11 @@ export const PasswordTester: React.FC = () => {
           </button>
         </div>
 
-        <div aria-label={`Força da palavra-passe: ${result.score}%`} className="progress-bar-bg">
+        <div aria-label={`Força da palavra-passe: ${result.score}%`} className="progress-bar-bg friendly-bar">
           <div
-            className="progress-bar-fill"
+            className="progress-bar-fill friendly-fill"
             style={{
-              width: `${result.score}%`,
+              width: `${Math.max(result.score, 5)}%`, /* Ensure it's slightly visible even at 0 so user knows it exists */
               backgroundColor: getProgressColor(),
             }}
           />

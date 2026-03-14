@@ -9,6 +9,7 @@ export interface PasswordStrengthResult {
   hasNumber: boolean;
   hasSymbol: boolean;
   isHiveSystemsSecure: boolean; // Based on 2024 table (e.g., considered secure if it takes > 1 year)
+  mascotHint: string;
 }
 
 // Approximated from Hive Systems 2024 Password Table (based on standard hash rates)
@@ -23,6 +24,7 @@ export function analyzePasswordStrength(password: string): PasswordStrengthResul
       hasNumber: false,
       hasSymbol: false,
       isHiveSystemsSecure: false,
+      mascotHint: 'Olá! Eu sou o Corvo da Segurança! 🐦‍⬛ Começa a escrever a tua palavra-passe para eu ver a barra a crescer!',
     };
   }
 
@@ -83,6 +85,24 @@ export function analyzePasswordStrength(password: string): PasswordStrengthResul
     timeExplanation = 'Excelente! A sua palavra-passe é altamente segura e resistente a ataques de força bruta pelos padrões atuais.';
   }
 
+  // Mascot Hint Logic
+  let mascotHint = '';
+  if (score >= 85) {
+      mascotHint = 'Incrível! 🏆 Esta palavra-passe é super forte! Repara como a barra ficou verde!';
+  } else {
+      if (!hasNumber && !hasSymbol) {
+         mascotHint = 'Bom começo! Mas a barra ainda está fraca. Que tal juntares alguns números que te lembres facilmente e talvez um símbolo (como !, ?, @)?';
+      } else if (!hasNumber) {
+         mascotHint = 'Boa! Já tens letras e símbolos. Adiciona uns números para veres a barra de força a disparar! 🚀';
+      } else if (!hasSymbol) {
+         mascotHint = 'Estás quase lá! Pensa em adicionar um símbolo (tipo ponto, hífen ou !) para separar as palavras. Os robôs odeiam isso! 🤖❌';
+      } else if (length < 10) {
+         mascotHint = 'Já tens os ingredientes certos, mas a palavra-passe é um bocado curta. Tenta torná-la mais longa, tipo uma frase!';
+      } else {
+         mascotHint = 'Continua a escrever! Quanto mais longa, mais depressa a barra chega ao verde. Olha para ela a crescer! 📈';
+      }
+  }
+
   return {
     score,
     timeToCrack,
@@ -92,5 +112,6 @@ export function analyzePasswordStrength(password: string): PasswordStrengthResul
     hasNumber,
     hasSymbol,
     isHiveSystemsSecure: score >= 85, // We consider it "Hive secure" if it takes at least Months/Years
+    mascotHint,
   };
 }
