@@ -24,7 +24,7 @@ export function analyzePasswordStrength(password: string): PasswordStrengthResul
       hasNumber: false,
       hasSymbol: false,
       isHiveSystemsSecure: false,
-      mascotHint: 'Olá! Eu sou o Corvo da Segurança! 🐦‍⬛ Começa a escrever a tua palavra-passe para eu ver a barra a crescer!',
+      mascotHint: 'Olá! Começa a escrever a tua palavra-passe para a barra começar a crescer!',
     };
   }
 

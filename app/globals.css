@@ -434,3 +434,80 @@ a:hover {
     background-color: #333333;
   }
 }
+
+/* Home Screen & Huge Input Overrides */
+.home-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.giant-menu-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--c-bg-card);
+  border: 2px solid var(--c-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--c-text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.giant-menu-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  background-color: #f0f4ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .giant-menu-btn:hover {
+    background-color: #1e2540;
+  }
+}
+
+.giant-btn-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-2);
+}
+
+.giant-menu-btn h3 {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-2);
+  color: var(--c-primary);
+}
+
+.giant-menu-btn p {
+  font-size: 1.1rem;
+  color: var(--c-text-muted);
+}
+
+.huge-input {
+  font-size: 2.5rem !important;
+  padding: var(--space-4) !important;
+  text-align: center;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-lg) !important;
+  height: auto !important;
+}
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-btn-container {
+  display: flex;
+  justify-content: flex-start;
+}

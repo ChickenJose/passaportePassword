@@ -37,8 +37,8 @@ export const PasswordTester: React.FC = () => {
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Digite a sua palavra-passe"
-            className="input-field"
+            placeholder="Digite aqui..."
+            className="input-field huge-input"
           />
           <button
             onClick={() => setShowPassword(!showPassword)}

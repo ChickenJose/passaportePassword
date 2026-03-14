@@ -1,9 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from '@/components/Button';
-import { Card } from '@/components/Card';
 import { PasswordTester } from '@/components/PasswordTester';
 import { PasswordWizard } from '@/components/PasswordWizard';
 
 export default function Home() {
+  const [currentView, setCurrentView] = useState<'home' | 'tester' | 'wizard'>('home');
+
   return (
     <main className="section-spacing">
       <div className="container app-container">
@@ -20,32 +24,33 @@ export default function Home() {
           </p>
         </header>
 
-        {/* Core Application Grid */}
-        <section className="app-grid">
-          
-          {/* Left Column: Password Tester */}
-          <div className="column">
-            <div className="column-header">
-              <h2>1. Teste de Força Bruta</h2>
-              <p className="text-muted">
-                Esta ferramenta interativa calcula em tempo real quanto tempo um pirata informático precisaria para desvendar a sua palavra-passe, baseando-se nas tabelas rigorosas da <strong>Hive Systems</strong>.
-              </p>
-            </div>
-            <PasswordTester />
-          </div>
+        {currentView === 'home' && (
+           <div className="home-menu">
+              <button className="giant-menu-btn" onClick={() => setCurrentView('tester')}>
+                 <span className="giant-btn-icon">🕵️</span>
+                 <h3>Testar a Força da Password</h3>
+                 <p>Descubra quanto tempo um pirata informático precisaria para desvendar a sua palavra-passe.</p>
+              </button>
+              
+              <button className="giant-menu-btn" onClick={() => setCurrentView('wizard')}>
+                 <span className="giant-btn-icon">✨</span>
+                 <h3>Método Interativo</h3>
+                 <p>Siga o nosso guia passo a passo para criar uma palavra-passe forte e fácil de memorizar.</p>
+              </button>
+           </div>
+        )}
 
-          {/* Right Column: Password Wizard (Step by step Guide) */}
-          <div className="column">
-            <div className="column-header">
-              <h2>2. Método Interativo</h2>
-              <p className="text-muted">
-                Vamos guiá-lo passo a passo na criação de uma palavra-passe forte, construindo blocos estruturais que combinam segurança com fácil memorização humana.
-              </p>
-            </div>
-            <PasswordWizard />
-          </div>
-
-        </section>
+        {currentView !== 'home' && (
+           <div className="view-container">
+             <div className="back-btn-container">
+                 <Button variant="outline" onClick={() => setCurrentView('home')}>
+                    &larr; Voltar ao Menu
+                 </Button>
+             </div>
+             {currentView === 'tester' && <PasswordTester />}
+             {currentView === 'wizard' && <PasswordWizard />}
+           </div>
+        )}
 
       </div>
     </main>

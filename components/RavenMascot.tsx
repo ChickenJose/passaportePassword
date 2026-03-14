@@ -15,17 +15,17 @@ export const RavenMascot: React.FC<RavenMascotProps> = ({ message, mood }) => {
   const getEmoji = () => {
     switch (mood) {
       case 'happy':
-        return '😆 🐦‍⬛';
+        return '😲';
       case 'warning':
-        return '🤔 🐦‍⬛';
+        return '🤔';
       default:
-        return '🐦‍⬛';
+        return '🤓';
     }
   };
 
   return (
     <div className="raven-container">
-      <div className="raven-emoji" aria-hidden="true" role="img" aria-label="Mascote Corvo">
+      <div className="raven-emoji" aria-hidden="true" role="img" aria-label="Mascote">
         {getEmoji()}
       </div>
       <div className="speech-bubble">
