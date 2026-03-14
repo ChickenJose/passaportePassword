@@ -103,7 +103,7 @@ export const PasswordWizard: React.FC = () => {
       case 3:
         return (
           <div className="wizard-step">
-            <p><strong>Passo 3:</strong> Imagine que está a criar uma conta na plataforma Facebook. Forneça as primeiras <strong>seis letras da palavra "Facebook"</strong>, exigindo estritamente que a primeira letra seja maiúscula e as restantes minúsculas (Ex: Facebo).</p>
+            <p><strong>Passo 3:</strong> Imagine que está a criar uma conta na plataforma Facebook. Forneça as primeiras <strong>seis letras da palavra &quot;Facebook&quot;</strong>, exigindo estritamente que a primeira letra seja maiúscula e as restantes minúsculas (Ex: Facebo).</p>
             <input
               type="text"
               maxLength={6}
@@ -144,8 +144,8 @@ export const PasswordWizard: React.FC = () => {
             <div className="educational-block">
               <h4 className="educational-title">Porquê que isto é mais seguro?</h4>
               <ul className="educational-list">
-                <li><strong>Mistura de carateres:</strong> Ao juntar números, símbolos e letras (maiúsculas e minúsculas), aumentou exponencialmente a complexidade que um computador precisa para a "adivinhar".</li>
-                <li><strong>Palavras cortadas:</strong> Um erro comum é usar uma palavra de dicionário (ex: "Facebook2024!"). Ao cortar "Facebook" para "Facebo", os ataques de dicionário automáticos falham.</li>
+                <li><strong>Mistura de carateres:</strong> Ao juntar números, símbolos e letras (maiúsculas e minúsculas), aumentou exponencialmente a complexidade que um computador precisa para a &quot;adivinhar&quot;.</li>
+                <li><strong>Palavras cortadas:</strong> Um erro comum é usar uma palavra de dicionário (ex: &quot;Facebook2024!&quot;). Ao cortar &quot;Facebook&quot; para &quot;Facebo&quot;, os ataques de dicionário automáticos falham.</li>
                 <li><strong>Fácil para si, difícil para a máquina:</strong> Memorizou 3 blocos fáceis (número pin, símbolo especial, contexto do site) que juntos compõem uma super chave!</li>
               </ul>
             </div>
