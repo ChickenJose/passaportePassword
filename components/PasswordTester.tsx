@@ -70,14 +70,31 @@ export const PasswordTester: React.FC = () => {
           </p>
         </div>
 
-        {password.length > 0 && (
-          <div className="badge-container">
-            <span className={`badge ${result.hasLower ? 'badge-success' : 'badge-default'}`}>Minúsculas</span>
-            <span className={`badge ${result.hasUpper ? 'badge-success' : 'badge-default'}`}>Maiúsculas</span>
-            <span className={`badge ${result.hasNumber ? 'badge-success' : 'badge-default'}`}>Números</span>
-            <span className={`badge ${result.hasSymbol ? 'badge-success' : 'badge-default'}`}>Símbolos</span>
-          </div>
-        )}
+        <div className="educational-block mt-4">
+          <h4 className="educational-title">Checklist de Segurança</h4>
+          <ul className="educational-list" style={{ listStyle: 'none', paddingLeft: 0 }}>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: password.length >= 12 ? 'var(--c-success)' : 'var(--c-text-muted)', transition: 'color 0.3s ease' }}>
+              <span>{password.length >= 12 ? '✅' : '⚪'}</span>
+              Pelo menos 12 caracteres (recomendado)
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: result.hasUpper ? 'var(--c-success)' : 'var(--c-text-muted)', transition: 'color 0.3s ease' }}>
+              <span>{result.hasUpper ? '✅' : '⚪'}</span>
+              Letras maiúsculas
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: result.hasLower ? 'var(--c-success)' : 'var(--c-text-muted)', transition: 'color 0.3s ease' }}>
+              <span>{result.hasLower ? '✅' : '⚪'}</span>
+              Letras minúsculas
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: result.hasNumber ? 'var(--c-success)' : 'var(--c-text-muted)', transition: 'color 0.3s ease' }}>
+              <span>{result.hasNumber ? '✅' : '⚪'}</span>
+              Números
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '8px', color: result.hasSymbol ? 'var(--c-success)' : 'var(--c-text-muted)', transition: 'color 0.3s ease' }}>
+              <span>{result.hasSymbol ? '✅' : '⚪'}</span>
+              Símbolos especiais
+            </li>
+          </ul>
+        </div>
 
       </div>
     </Card>

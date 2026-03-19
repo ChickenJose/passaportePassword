@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup - Passaporte Competências Digitais</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    :root {
+      /* Palette inspired by the provided logo and modern clean aesthetics (like Apple / Vercel sites) */
+      --bg-color: #fcfcfd;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --primary-gradient: linear-gradient(135deg, #0ea5e9, #8b5cf6); /* Blue to Purple matching the logo */
+      --hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.15);
+      --border-radius: 24px;
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Inter', sans-serif; 
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.04), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.04), transparent 25%);
+    }
+
+    header {
+      width: 100%;
+      max-width: 1200px;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* Simulating the uploaded logo */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--primary-gradient);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+      position: relative;
+    }
+
+    /* The cursor arrow inside the logo */
+    .logo-icon::after {
+      content: '';
+      width: 24px;
+      height: 24px;
+      border: 3px solid white;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg) translate(2px, -2px);
+      position: absolute;
+    }
+    .logo-icon::before {
+      content: '';
+      width: 3px;
+      height: 30px;
+      background: white;
+      transform: rotate(45deg) translate(0px, 0px);
+      position: absolute;
+      border-radius: 2px;
+    }
+
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .logo-text span {
+      display: block;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      padding: 80px 20px 60px;
+      animation: fadeUp 0.8s ease-out;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(14, 165, 233, 0.1);
+      color: #0ea5e9;
+      border-radius: 99px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--text-main);
+    }
+
+    .hero h1 span {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px 100px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 48px 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      border: 1px solid rgba(229, 231, 235, 0.5);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--primary-gradient);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: var(--hover-shadow); 
+      border-color: transparent;
+    }
+    
+    .card:hover::before { opacity: 0.03; }
+
+    .card-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: rgba(14, 165, 233, 0.05);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 32px;
+      transition: all 0.4s ease;
+      z-index: 2;
+    }
+
+    .card:hover .card-icon-wrapper {
+      background: var(--primary-gradient);
+      transform: scale(1.1);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      transition: all 0.4s ease;
+    }
+    
+    .card:hover .card-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-main);
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      z-index: 2;
+    }
+
+    .card-action {
+      margin-top: 32px;
+      font-weight: 600;
+      color: #0ea5e9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover .card-action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 48px; }
+      .hero { padding: 40px 20px; }
+      .cards-grid { padding-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <!-- Simulated Logo based on user upload -->
+      <div class="logo-icon"></div>
+      <div class="logo-text">
+        Passaporte
+        <span>Competências Digitais</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="badge">Ferramenta Educacional</div>
+    <h1>A sua jornada de segurança <span>começa aqui.</span></h1>
+    <p>Aprenda a construir uma palavra-passe robusta e descubra quão seguras são as suas credenciais atuais contra piratas informáticos.</p>
+  </section>
+
+  <section class="cards-grid">
+    <a href="#" class="card">
+      <div class="card-icon-wrapper">
+        <span class="card-icon">🔐</span>
+      </div>
+      <h3>Testar Password</h3>
+      <p>Descubra em tempo real quanto tempo um pirata informático precisaria para desvendar a sua palavra-passe.</p>
+      <div class="card-action">Começar Teste <span>→</span></div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-icon-wrapper">
+        <span class="card-icon">✨</span>
+      </div>
+      <h3>Método Interativo</h3>
+      <p>Siga o nosso guia passo a passo dinâmico para criar uma palavra-passe forte e incrivelmente fácil de memorizar.</p>
+      <div class="card-action">Criar Senha Segura <span>→</span></div>
+    </a>
+  </section>
+
+</body>
+</html>
