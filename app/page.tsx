@@ -70,8 +70,12 @@ export default function Home() {
                     &larr; Voltar ao Menu
                  </Button>
              </div>
-             {currentView === 'tester' && <PasswordTester />}
-             {currentView === 'wizard' && <PasswordWizard />}
+             <div style={{ display: currentView === 'tester' ? 'block' : 'none', width: '100%' }}>
+                 <PasswordTester />
+             </div>
+             <div style={{ display: currentView === 'wizard' ? 'block' : 'none', width: '100%' }}>
+                 <PasswordWizard />
+             </div>
            </div>
         )}
 
