@@ -131,17 +131,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--space-4);
 }
 
-.logo-image-wrapper {
-  width: 64px;
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
-  overflow: hidden;
-  background: var(--c-bg-card);
-  position: relative;
+.logo-image-wrapper.horizontal {
+  width: auto;
+  height: auto;
+  min-width: 200px;
+  max-width: 350px;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.main-logo-horizontal {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .logo-text {

@@ -15,18 +15,15 @@ export default function Home() {
         
         <header className="app-header fade-in-up">
           <div className="logo-container">
-            <div className="logo-image-wrapper">
+            <div className="logo-image-wrapper horizontal">
               <Image 
-                src="/logo.png" 
-                alt="Logo Passaporte Competências Digitais" 
-                width={64}
-                height={64}
-                className="main-logo"
+                src="/logo-horizontal.png" 
+                alt="Passaporte Competências Digitais" 
+                width={300}
+                height={80}
+                className="main-logo-horizontal"
+                priority
               />
-            </div>
-            <div className="logo-text">
-              Passaporte
-              <span>Competências Digitais</span>
             </div>
           </div>
           
